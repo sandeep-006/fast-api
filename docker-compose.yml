@@ -30,6 +30,12 @@ services:
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
       - "5050:80"
-
+  web:
+   build:
+     dockerfile: dockerfile-fastapi
+   ports:
+     - "8000:8000"
+   volumes:
+     - ".:${CWD:-/code}"
 volumes:
   postgres-db:
